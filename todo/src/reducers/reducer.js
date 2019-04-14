@@ -1,4 +1,4 @@
-import {  ADD_TODO, TOGGLE_TODO } from "../actions";
+import {  ADD_TODO, TOGGLE_TODO, DELETE_TODO } from "../actions";
 
  const initialState = {
      todo: [
@@ -34,6 +34,12 @@ import {  ADD_TODO, TOGGLE_TODO } from "../actions";
                  }
              })
          };
+
+         case DELETE_TODO:
+         return {
+             ...state, 
+             todo: state.todo.filter( todo => todo.checkStatus !== true)
+         }
 
          default:
          return state;

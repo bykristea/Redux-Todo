@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 
-import { addToDo, toggleTODO } from "../actions";
+import { addToDo, toggleTODO, deleteToDo } from "../actions";
 
 class ToDoList extends React.Component {
   state = {
@@ -24,6 +24,11 @@ class ToDoList extends React.Component {
     this.props.toggleTODO(id)
   }
 
+  deleteToDo = id => {
+    
+      this.props.deleteToDo(id)
+  }
+
   render() {
     return (
       <>
@@ -32,9 +37,11 @@ class ToDoList extends React.Component {
             <h4 onClick={() => this.toggleTODO(todo.id)} key={todo.id}>
               {todo.name}
               {todo.checkStatus && <i className="fas fa-check" />}
+              
             </h4>
           ))}
         </div>
+        <button onClick={() => this.deleteToDo()} >Delete Checked</button>
         <form>
           <input
             type="text"
@@ -57,4 +64,4 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addToDo, toggleTODO })(ToDoList);
+  { addToDo, toggleTODO, deleteToDo })(ToDoList);
