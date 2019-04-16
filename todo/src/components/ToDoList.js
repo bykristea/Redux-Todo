@@ -34,10 +34,9 @@ class ToDoList extends React.Component {
       <>
         <div className="todo-list">
           {this.props.todo.map((todo, index) => (
-            <h4 onClick={() => this.toggleTODO(todo.id)} key={todo.id}>
+            <h4 className="todo" onClick={() => this.toggleTODO(todo.id)} key={todo.id}>
+            {todo.checkStatus && <i className="fas fa-check" />}
               {todo.name}
-              {todo.checkStatus && <i className="fas fa-check" />}
-              
             </h4>
           ))}
         </div>

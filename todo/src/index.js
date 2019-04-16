@@ -18,7 +18,7 @@ function App() {
     <div className="App">
     <header className="App-header">
          
-         <h1>
+         <h1 className="list-name">
            To Do List
          </h1>
        
